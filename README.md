@@ -1,22 +1,26 @@
 # BlockLine
-single file programming language for beginers
+single file programming language for beginers ( made in c++ )
 
 ## TO BUILD:
-you need to have clang and nothing more
+you need to have clang and nothing more, and then you execute `build.bat` or `build.sh` ( depends if you use Windows or Linux )
+or you can use the release builds that are already compiled
 
 ## TO RUN A PROGRAMM
 only need to execute `blockline.exe` ( in linux you need to open the terminal and run `blockline` )
+the default main file always is `Main.block`, so, as long as you have that and `Project.block` for
+configurations, you are good to go
 
-## STRUCTURE YOUR PROJECT ( the BlockLine file extension is block ):
-to build you need to have this two files:
+## STRUCTURE OF A BLOCKLINE PROJECT ( the BlockLine file extension is block ):
+the structure is:
 `Main.block`
 `Project.block`
+`AnythingElse.block`
 inside `Main.block` you have the entry point of your programm
 in `Project.block` you have the block files to import
 
 ## IMPORTING FILES
 to import something you need to add this to your Project.block`
-import --file_name--.block --macro--`
+import --file--.block --macro--`
 and to use the file in your code you need to do this on Main.block
 `execute --macro--`
 
