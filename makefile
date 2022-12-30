@@ -3,10 +3,10 @@ OS=$(shell uname)
 
 PROC	:= blockline
 FILE	:= Main.cpp
-FLAGS := -Wno-return-type -std=c++17 -O2
+FLAGS   :=-Wno-return-type -std=c++17 -O2
 
 # default compiler, run 'make CXX=NAME_OF_COMPILER' to change
-CXX 	:= g++
+CXX 	:= clang++
 
 ifeq ($(OS), Windows)
 
