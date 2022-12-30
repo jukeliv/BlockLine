@@ -36,14 +36,25 @@ you define variables with this two ways:
 
 ## COMMANDS
 `set --variable-- --value/variable--`                sets a variable
+
 `sum --variable-- --value/variable--`                adds a variable
+
 `sub --variable-- --value/variable--`                subtract a variable
+
 `mul --variable-- --value/variable--`                multiply a variable
+
 `div --variable-- --value/variable--`                divide a variable
+
 `jump --line--`                                      jump to a line in code
+
 `lump --line-- --variable-- --value/variable--`      jump to a line in code if the value of a variable is minor than other value
+
 `gump --line-- --variable-- --value/variable--`      jump to a line in code if the value of a variable is greater than other value 
+
 `eump --line-- --variable-- --value/variable--`      jump to a line in code if the value of a variable is equal to other value
+
 `input --variable--`                                 ask to the user to input a value and writes it into a variable
+
 `print --text/variable--`                            prints something into the scree (spaces are "_" and you can put as much variables/text as you want )
+
 `exit --exit code--`                                 exits the program or script
