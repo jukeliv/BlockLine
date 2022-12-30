@@ -8,7 +8,7 @@ FLAGS   :=-Wno-return-type -std=c++17 -O2
 # default compiler, run 'make CXX=NAME_OF_COMPILER' to change
 CXX 	:= clang++
 
-ifeq ($(OS), Windows)
+ifeq ($(OS), Win)
 
 $(PROC).exe: $(FILE)
 	$(CXX) $(FLAGS) $< -o $@

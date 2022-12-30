@@ -7,6 +7,7 @@ then you need to open a Terminal window and run "make"
 the make file is pre configured and the process should be straight
 NOTE if the C++ compiler that you have is not clang, you need to tell to the make file
 by writing `make CXX=g++` ( this is the example for gcc, just put your compiler in there and it should work )
+also, if you are in windows, you need to add `OS=Win`to the compiler flags
 
 ## RUN A PROGRAM
 only need to execute `blockline.exe` ( in linux you need to open the terminal and run `blockline` )

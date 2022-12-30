@@ -36,6 +36,8 @@ std::string readFile(std::string file)
     }
     else {
         std::cout << "Couldn't open file\n" << file << std::endl;
+        std::cin.get();
+        exit(-1);
     }
 
     return str;
@@ -46,6 +48,14 @@ std::unordered_map<std::string, Var> m_Variables;
 std::unordered_map<std::string, Var> m_GlobalVariables;
 
 short ec = 0;
+void ERROR(const std::string& str, short exitc)
+{
+    std::cout << str << std::endl;
+    std::cout << "EXITING PROGRAM EXECUTION" << std::endl;
+    std::cout << "exit code " << exitc;
+    std::cin.get();
+    exit(exitc);
+}
 bool isVar(const std::string& str)
 {
     return m_Variables.find(str) != m_Variables.end() || m_GlobalVariables.find(str) != m_GlobalVariables.end();
@@ -57,6 +67,10 @@ short& getVar(const std::string& str)
 		return m_Variables.at(str).value;
     else if(m_GlobalVariables.find(str) != m_GlobalVariables.end())
         return m_GlobalVariables.at(str).value;
+
+    std::stringstream ss;
+    ss << "VARIABLE" << str << " DOESN'T EXIST";
+    ERROR(ss.str(), -1);
 }
 
 void execCode(std::string file)
@@ -215,8 +229,8 @@ void execCode(std::string file)
 
 int main()
 {
-    std::string file = "Main.block";
-    std::string p = "Project.block";
+    std::string file;
+    std::string p = "Project.blocky";
 
     std::vector<std::string> projectFile = split(readFile(p), '\n');
     size_t i = 0;
@@ -227,10 +241,18 @@ int main()
         std::vector<std::string> line = split(projectFile[i], ' ');
         if(line[0] == "import")
         {
-            //import --file-- --name--
+            //import --file--.block --name--
             m_Files[line[2]] = line[1];
             i++;
         }
+        else if(line[0] == "entry")
+        {
+            //entry --file--
+            file = line[1];
+            i++;
+        }
+        else
+            i++;
     }
     execCode(file);
     
